@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+{% extends "master.html" %}
+{% block content %}
+<!doctype html>
+<head>
+<title>About</title>
+<style>
+
+    body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 8%;
+    }
+
+a{
+    text-decoration: none;
+}
+.content {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    font-size: 16px;
+}
+
+.container {
+      display: flex; /* Use flexbox for layout */
+      align-items: flex-start;
+    }
+    .figure-container {
+      margin-right: 20px; /* Distance between the figure and tables */
+    }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .image-content {
+            flex: 0 1 300px; /* Do not grow, but can shrink, with 200px base width */
+            margin-left: 20px; /* Spacing between text and image */
+            margin-top: 50px;
+            text-align: center;
+        }
+        img {
+            width: 100%; /* Make image fill the container */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        table {
+  border-collapse: collapse;
+  width: 50%; /* Allows the table to grow based on content up to the max-width */
+  max-width: 100%; /* Ensures table does not exceed its container width */
+  min-width: 160px; /* Minimum width of tables to ensure readability */
+  }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      font-size: 16px;
+      
+    }
+    th {
+      background-color: #828282;
+      color: #fff;
+      font-weight: normal;
+      text-align: left;
+      font-size: 18px;
+
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-content">
+            <h2>About macrocycles</h2>
+            <p>Macrocycles, defined as rings of at least 12 heavy atoms, 
+                have garnered significant attention across various scientific fields, 
+                including drug discovery <sup>1</sup>. 
+                Their appeal lies in their capacity to combine functional diversity and stereochemical complexity with conformational restriction to disc- and spherelike shapes. 
+                This distinctive structural attribute empowers macrocycles to bind with high affinity and selectivity to ‘difficult to drug’ targets that are challenging to modulate with traditional small-molecule drugs that adhere to the Rule of Five (Ro5) <sup>1–3</sup>. 
+                Despite their size, macrocycles may still possess sufficient cell permeability and bioavailability, 
+                rendering them promising candidates for oral administration<sup>1,4</sup>. 
+                While macrocyclic drugs were historically derived from natural sources, there is a growing inclination towards de novo designed macrocycles among FDA approved drugs<sup>1</sup>. 
+                The rational design of potent, cell-permeable, orally available macrocyclic pharmaceuticals poses numerous challenges, particularly concerning synthesis and conformational prediction <sup>5–7</sup>.
+            </p>
+            <p>
+                The process of passive cell permeability involves several steps, including desolvation when the drug transitions from the extracellular aqueous environment to interacting with the negatively charged phospholipid head groups before penetrating into the hydrophobic membrane interior (Figure 1). These steps are then reversed as the drug moves into the cytosol. Each of these processes is influenced to varying degrees by the molecular properties of the drug.   
+                For example, the compound's polarity, represented by its 3D polar surface area (PSA), significantly impacts the desolvation kinetics<sup>8</sup>.
+                The compound's size, approximated by the radius of gyration (R<sub>gyr</sub>), affects the rate of diffusion across the membrane, while its lipophilicity (cLogP or cLogD) is crucial for the thermodynamics of permeation<sup>8</sup>.  
+            </p>
+        </div>
+    </div>
+    <div class="image-content">
+        <img src="/static/about1_4.tiff" alt="Macrocyclic Compounds 1" style="width: 80%;margin-top: -20px">
+    </div>
+
+    <div class="container">
+        <p>
+            <b>Figure 1.</b> 
+            Schematic representation of passive cell permeability of telithromycin<sup>9</sup>. 
+            Telithromycin behaves as a molecular chameleon when crossing the cell membrane, 
+            i.e. it adopts open and polar conformations in an aqueos environment, 
+            then folds to closed, less polar conformations in the interior of the cell membrane<sup>10</sup>.
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="text-content">
+            <h2>Overview of the Non-peptide Macrocycle Membrane Permeability Database (NPMMPD)</h2>
+            <p>
+                Quantitative structure-permeability relationship (QSPR) methods are commonly used to model permeability in drug discovery. These methods rely on statistical relationships derived from experimental permeability data and calculatd physicochemical descriptors, such as PSA, R<sub>gyr</sub>, and cLogP/D, for a set of compounds used for building the models<sup>9,11-13</sup>. 
+                Alternatively, some models are developed based directly on the physical processes involved. Physics-based models have provided a deeper understanding of how macrocycles can cross cell membranes<sup>14</sup>.
+            </p>
+            <p>
+                To facilitate the accurate and efficient computational prediction of permeability, it is crucial to collect and curate experimental data, while also annotating it with structural information, thereby making it readily accessible to the scientific community. In our web server, we have established the NPMMPD database, which serves as a comprehensive online resource for non-peptidic macrocycle cell permeability. This database contains curated data for both semi-peptidic and non-peptidic macrocycles sourced from the scientific literature, patents, and various bioactivity data repositories (Figure 2A). 
+                It thus complements the <a href="http://cycpeptmpdb.com">CycPeptMPDB</a> , a comprehensive database focused on the membrane permeability of cyclic peptides<sup>15</sup>. 
+                NPMMPD includes structures and permeability data obtained from different assays and endpoints, as well as molecular features for 4602 unique macrocycles. These data are readily accessible and downloadable through the web server (http://swemacrocycle.com) for further modeling purposes. The diversity of the dataset based on fingerprinting of the macrocycles is showcased using the <a href="https://tmap.gdb.tools">TMap tool</a>, with the different assays highlighted (Figure 2B).
+            </p>
+        </div>
+
+    </div>
+
+    <div class="image-content" style="margin-top: 10px;">
+      
+            <img src="/static/about2_3.tiff" alt="Macrocyclic Compounds 2" >
+    
+    </div>
+
+    <div class="container">
+        <p>
+            <b>Figure 2.</b> 
+            <b>A).</b> The workflow used to establish Non-peptide Macrocycle Membrane Permeability Database (NPMMPD). Structures and permeability data were retrieved from the literature, patents, and scientific databases, followed by manual curation. The webserver provides readily downloadable datasets for various cell permeability assays and endpoints. Additionally, the webserver incorporates analyses based on various physicochemical descriptors. 
+            <b>B).</b> Diversity of the non-peptide macrocyclic dataset (n=5638) visualized using TMAP tool. The four most frequently used permeability assays are highlighted, just as three structural characteristics.
+    </div>
+    
+    <div class="text-content" style="margin-bottom: 10px;">
+        <h2>Reference</h2>
+        <div class="reference-list">
+            <ol>
+                <li style="font-size: 14px;">Garcia Jimenez, D.; Poongavanam, V.; Kihlberg, J. Macrocycles in Drug Discovery─ Learning from the Past for the Future. <em>Journal of Medicinal Chemistry</em> <strong>2023</strong>, <em>66 (8)</em>, 5377–5396.</li>
+                <li style="font-size: 14px;">Villar, E. A.; Beglov, D.; Chennamadhavuni, S.; Porco Jr, J. A.; Kozakov, D.; Vajda, S.; Whitty, A. How Proteins Bind Macrocycles. <em>Nature chemical biology</em> <strong>2014</strong>, <em>10 (9)</em>, 723–731.</li>
+                <li style="font-size: 14px;">Doak, B. C.; Zheng, J.; Dobritzsch, D.; Kihlberg, J. How beyond Rule of 5 Drugs and Clinical Candidates Bind to Their Targets. <em>Journal of Medicinal Chemistry</em> <strong>2016</strong>, <em>59 (6)</em>, 2312–2327.</li>
+                <li style="font-size: 14px;">Giordanetto, F.; Kihlberg, J. Macrocyclic Drugs and Clinical Candidates: What Can Medicinal Chemists Learn from Their Properties? <em>Journal of Medicinal Chemistry</em> <strong>2014</strong>, <em>57 (2)</em>, 278–295.</li>
+                <li style="font-size: 14px;">Bhardwaj, G.; O'Connor, J.; Rettie, S.; Huang, Y.-H.; Ramelot, T. A.; Mulligan, V. K.; Alpkilic, G. G.; Palmer, J.; Bera, A. K.; Bick, M. J.; others. Accurate de Novo Design of Membrane-Traversing Macrocycles. <em>Cell</em> <strong>2022</strong>, <em>185 (19)</em>, 3520–3532.</li>
+                <li style="font-size: 14px;">Martí-Centelles, V.; Pandey, M. D.; Burguete, M. I.; Luis, S. V. Macrocyclization Reactions: The Importance of Conformational, Configurational, and Template-Induced Preorganization. <em>Chemical Reviews</em> <strong>2015</strong>, <em>115 (16)</em>, 8736–8834.</li>
+                <li style="font-size: 14px;">Mortensen, K. T.; Osberger, T. J.; King, T. A.; Sore, H. F.; Spring, D. R. Strategies for the Diversity-Oriented Synthesis of Macrocycles. <em>Chemical Reviews</em> <strong>2019</strong>, <em>119 (17)</em>, 10288–10317.</li>
+                <li style="font-size: 14px;">Guimarães, C. R. W.; Mathiowetz, A. M.; Shalaeva, M.; Goetz, G.; Liras, S. Use of 3D Properties to Characterize Beyond Rule-of-5 Property Space for Passive Permeation. <em>Journal of Chemical Information and Modeling</em> <strong>2012</strong>, <em>52 (4)</em>, 882–890.</li>
+                <li style="font-size: 14px;">Poongavanam, V.; Wieske, L. H.; Peintner, S.; Erdélyi, M.; Kihlberg, J. Molecular Chameleons in Drug Discovery. <em>Nature Reviews Chemistry</em> <strong>2024</strong>, <em>8 (1)</em>, 45–60.</li>
+                <li style="font-size: 14px;">Danelius, E.; Poongavanam, V.; Peintner, S.; Wieske, L. H. E.; Erdélyi, M.; Kihlberg, J. Solution Conformations Explain the Chameleonic Behaviour of Macrocyclic Drugs. <em>Chemistry – A European Journal</em> <strong>2020</strong>, <em>26 (23)</em>, 5231–5244.</li>
+                <li style="font-size: 14px;">Over, B.; Matsson, P.; Tyrchan, C.; Artursson, P.; Doak, B. C.; Foley, M. A.; Hilgendorf, C.; Johnston, S. E.; Lee IV, M. D.; Lewis, R. J. Structural and Conformational Determinants of Macrocycle Cell Permeability. <em>Nature Chemical Biology</em> <strong>2016</strong>, <em>12 (12)</em>, 1065–1074.</li>
+                <li style="font-size: 14px;">Rossi Sebastiano, M.; Doak, B. C.; Backlund, M.; Poongavanam, V.; Over, B.; Ermondi, G.; Caron, G.; Matsson, P.; Kihlberg, J. Impact of Dynamically Exposed Polarity on Permeability and Solubility of Chameleonic Drugs beyond the Rule of 5. <em>Journal of Medicinal Chemistry</em> <strong>2018</strong>, <em>61 (9)</em>, 4189–4202.</li>
+                <li style="font-size: 14px;">Poongavanam, V.; Atilaw, Y.; Ye, S.; Wieske, L. H.; Erdelyi, M.; Ermondi, G.; Caron, G.; Kihlberg, J. Predicting the Permeability of Macrocycles from Conformational Sampling–Limitations of Molecular Flexibility. <em>Journal of Pharmaceutical Sciences</em> <strong>2021</strong>, <em>110 (1)</em>, 301–313.</li>
+                <li style="font-size: 14px;">Rezai, T.; Bock, J. E.; Zhou, M. V.; Kalyanaraman, C.; Lokey, R. S.; Jacobson, M. P. Conformational Flexibility, Internal Hydrogen Bonding, and Passive Membrane Permeability: Successful in Silico Prediction of the Relative Permeabilities of Cyclic Peptides. <em>Journal of the American Chemical Society</em> <strong>2006</strong>, <em>128 (43)</em>, 14073–14080.</li>
+                <li style="font-size: 14px;">Li, J.; Yanagisawa, K.; Sugita, M.; Fujie, T.; Ohue, M.; Akiyama, Y. CycPeptMPDB: A Comprehensive Database of Membrane Permeability of Cyclic Peptides. <em>Journal of Chemical Information and Modeling</em> <strong>2023</strong>, <em>63 (7)</em>, 2240–2250.</li>
+            </ol>
+        </div>
+        
+
+
+    </div>
+    
+    <hr style="border-color: #bebebe; margin-top: 5px; margin-bottom: 10px;">
+
+    <div class="container">
+        <h2>Development Tools</h2>
+    </div>
+
+    <div>
+        <table style="table-layout: fixed; width: 60%">
+            <tr>
+                <th><b>Tools and Version</b></th>
+                <th><b>Function</b></th>
+            </tr>
+            <tr>
+                <td><a href="https://www.djangoproject.com">Django (Ver. 3.2.23)</a></td>
+                <td>Web framework</td>
+            </tr>
+            <tr>
+                <td><a href="https://www.rdkit.org">RDKit (Ver. 2020.09.1)</a> </td>
+                <td>Molecular features calculation and 2D representation</td>
+            </tr>
+
+            <tr>
+                <td><a href="https://www.datatables.net">DataTable </a></td>
+                <td>HTML tables interactions </td>
+            </tr>
+            <tr>
+                <td><a href="https://echarts.apache.org/en/index.html">Apache ECharts (Ver. 5.5.0)</a></td>
+                <td>Molecular features data visualization</td>
+            </tr>
+        </table>
+    </div>
+
+    <hr style="border-color: #bebebe; margin-top: 15px; margin-bottom: 10px;">
+
+    <div class="container" style="line-height: 0.5">
+        <div class="text-content" >
+        <h2>Team</h2>
+            <p>This website database is developed and designed by</p>
+            <p><b>- Qiushi Feng （冯秋实）</b> 
+                <a href="mailto:fengqs99@outlook.com"><img src="/static/envelope.svg" style="width: 20px;"></a>
+                <a href= "https://www.linkedin.com/in/qiushi-feng-79574126a"><img src="/static/linkedin.svg" style="width: 20px;"></a>
+            </p>
+            <p>- Danjo De Chavez</p>   
+            <p>- Jan Kihlberg</p>
+            <p>- Vasanthanathan Poongavanam</p>
+            
+        </div>
+    </div>
+
+    <hr style="border-color: #bebebe; margin-top: 5px; margin-bottom: 10px;">
+
+    <div class="container">
+        <div class="text-content ">
+        <h2>Acknowledgment</h2>
+        <p> 
+            The work was funded by a grant from the Swedish Research Council (Grant No. 2021-04747). 
+            The authors are grateful to Saw Simeon for assisting with TMap figure generation and thank Mikael Österberg, Uppsala University for IT support. 
+            Qiushi Feng also thank Christian Sköld for his support during this project as part of Pharmaceutical Modelling Program (UU-FPM2M), Uppsala University. </p>
+        </p>
+        </div>
+    </div>    
+    <hr style="border-color: #bebebe; margin-top: 5px; margin-bottom: -200px;">
+
+</body>
+
+</html>
+
+{% endblock %}

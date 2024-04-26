@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+{% extends "master.html" %}
+
+{% block content %}
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+  <style>
+        body{
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .qgg-table{
+            border-collapse: collapse;
+            width:100%;
+            border:1px solid #c6c6c6 !important;
+            margin-bottom:20px;
+        }
+        .qgg-table th{
+            font-family: Arial, sans-serif;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            background-color:#828282 !important; 
+            color: #fff;
+            padding:5px 9px;
+            font-size:16px;
+            font-weight:normal;
+            text-align:center;
+        }
+        .qgg-table td{
+            font-family: Arial, sans-serif;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important; 
+            padding:5px 9px;
+            font-size:14px;
+            font-weight:normal;
+            text-align:center;
+            word-break: break-all;
+        }
+        .qgg-table tr:nth-child(odd){
+            background-color:#fff !important; 
+        }
+        .qgg-table tr:nth-child(even){
+            background-color: #f8f8f8 !important;
+        }   
+        
+        .loading-animations {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(240, 240, 240);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            color: #828282;
+        }       
+  </style>
+</head>
+
+
+<body>
+
+    <div id="loading-warp" class="loading-animations">
+        Loading...
+    </div>
+    
+
+    <table id="table" width ="100%" class="qgg-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Common name</th>
+                <th>Structure</th>
+                <th>Assay</th>
+                <th>Endpoint</th>
+                <th>Value</th>
+                <th>Unit</th>
+                <th>Standardised Value</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for x in db_entry %}
+        <tr>
+          <td><a href="details/{{ x.id }}">{{ x.name }}</a></td>
+          <td>{{ x.Common_name }}</td>
+          <td style="text-align: center;">
+           <img src="/static/Overall_images/{{ x.name }}.png" alt="{{ x.name }}" style="width: 250px; display: block; margin: auto;">
+         </td>
+
+          <td>{{ x.Assay }}</td>
+          <td>
+           {% if x.Endpoint == "Log Papp" %}
+               Log P<sub>app</sub>
+           {% elif x.Endpoint == "Log Papp AB" %}
+               Log P<sub>app</sub> AB
+           {% elif x.Endpoint == "Log Papp AB+Inh." %}
+               Log P<sub>app</sub> AB+Inh.
+           {% elif x.Endpoint == "Log Papp BA" %}
+               Log P<sub>app</sub> BA
+           {% elif x.Endpoint == "Log Peff" %}
+               Log P<sub>eff</sub>
+           {% elif x.Endpoint == "Minus_Log P app" %}
+               Minus_Log P<sub>app</sub>
+           {% elif x.Endpoint == "Minus_Log P eff" %}
+               Minus_Log P<sub>eff</sub>
+           {% elif x.Endpoint == "Papp" %}
+               P<sub>app</sub>
+           {% elif x.Endpoint == "Papp AB" %}
+               P<sub>app</sub> AB
+           {% elif x.Endpoint == "Papp AB+Inh." %}
+               P<sub>app</sub> AB+Inh.
+           {% elif x.Endpoint == "Papp BA" %}
+               P<sub>app</sub> BA
+           {% elif x.Endpoint == "Papp BA+Inh." %}
+               P<sub>app</sub> BA+Inh.
+           {% elif x.Endpoint == "Papp+Inh." %}
+               P<sub>app</sub>+Inh.
+           {% elif x.Endpoint == "Peff" %}
+               P<sub>eff</sub>
+           {% else %}
+               {{ x.Endpoint }}
+           {% endif %}
+         </td>
+  
+   <td>{{ x.Value }}</td>
+   <td>{% if x.Unit == "10^-6 cm/s" %}
+                10<sup>-6</sup> cm/s
+            {% elif x.Unit == "10^6 cm/s" %}
+                10<sup>6</sup> cm/s
+            {% elif x.Unit == "10^-7 cm/s" %}
+                10<sup>-7</sup> cm/s
+            {% elif x.Unit == "10^7 cm/s" %}
+                10<sup>7</sup> cm/s
+            {% else %}
+                {{ x.Unit }}
+            {% endif %}</td>
+   <td>{{ x.Standardized_Value }}</td>
+
+ </tr>
+{% endfor %}
+
+</table>
+<p>Charged molecules were neutralized</p>
+<p style="margin-bottom: -15%;">
+    <b>Abbreviation: </b> 
+    PAMPA: Parallel Artificial Membrane Permeability Assay;
+    MDCK:Madin-Darby Canine Kidney Cells;
+    RRCK:Ralph Russ Canine Kidney Cells ;
+    ER:Efflux Ratio ;
+    P<sub>app</sub>:Apparent Permeability;(<a href="https://hrcak.srce.hr/file/93223">Nožinić et al., 2010</a> ),
+    P<sub>eff</sub>:Effective Permeability. 
+   (<a href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.1c02090">Rzepiela et al., 2022 </a>)
+</p>
+
+
+</body>
+
+<script>
+     window.addEventListener('load', function () {
+        let loader = document.getElementById("loading-warp");
+        loader.className = "loading-animations loading-animations-out";
+        setTimeout(() => {
+            loader.style.display = "none"
+        }, 10);
+    });
+
+  $(document).ready(function() {
+    var table = $('#table').DataTable();
+
+    // Apply only to the "Value" and "Standardised Value" columns
+    var indicesToSort = [3]; // Adjust the indices as per your table's actual column order
+
+    indicesToSort.forEach(function(index) {
+      var column = table.column(index);
+      var select = $('<select><option value=""></option></select>')
+        .appendTo($(column.header()))
+        .on('change', function() {
+          var val = $.fn.dataTable.util.escapeRegex($(this).val());
+          column
+            .search(val ? '^' + val + '$' : '', true, false)
+            .draw();
+            
+        });
+
+      column.data().unique().sort().each(function(d, j) {
+        select.append('<option value="' + d + '">' + d + '</option>')
+      });
+    });
+  });
+</script>
+
+</html>
+{% endblock %}

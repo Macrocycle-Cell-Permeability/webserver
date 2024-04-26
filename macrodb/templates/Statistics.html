@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+{% extends "master.html" %}
+{% block content %}
+
+<html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <script src="/static/echarts.js"></script>
+            <style>
+                body{
+                  font-family: Arial, Helvetica, sans-serif;
+                }
+                .title {
+                      margin-bottom: 5px;
+                }
+
+                .chart-container {
+                    display: flex;
+                    flex-wrap: wrap; /* Allows items to wrap to next line if not enough space */
+                    justify-content: center; /* Centers items horizontally */
+                    align-items: center; /* Centers items vertically */
+                    margin-top: 20px;
+                    margin-left: 3%;
+                    margin-bottom: -5%;
+                
+                }
+                .chart, .bar {
+                    flex: 1; /* Allows charts and bars to grow and fill the space */
+                    min-width: 48%; /* Sets minimum width to prevent overlap, considering some margin */
+                    margin: 10px; /* Adds some space between charts */
+                }
+                .chart {
+                
+                    height: 480px
+                }
+                .bar {
+                    width: 640px;
+                    height: 300px;
+                }
+                .grid-table {
+            width: 100%;
+            border-collapse: collapse;
+            }
+
+    .grid-table, .grid-table td ,.grid-table th {
+  border: 1px solid #ffffff; /* This sets the border around the table and between the cells */
+  width: 100%;
+  margin: 0 auto; /* Centers the table */}
+
+.grid-table td{
+  padding: 10px; /* Adjust padding as needed for content */
+  text-align: left; /* Centers the content in each cell */
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.grid-table th{
+  padding: 10px; /* Adjust padding as needed for content */
+  text-align: left; /* Centers the content in each cell */
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.button-container { 
+    margin-left: 1%;
+    margin-bottom: 3%;
+    }         
+    
+    button {
+    margin-top: 10px;
+    background-color: #e6e6e6; /* Light grey background for inactive buttons */
+    color: black; /* Black text color */
+    border: 1px solid #ccc; /* Grey border */
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+
+
+.active-btn {
+    margin-top: 10px;
+    background-color: #828282; /* Green background for active button */
+    color: white;
+    border: 1px solid #ccc; /* Grey border */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+</style>
+        </head>
+        
+  <table class="grid-table" >
+
+    <tr>
+      <td style="width: 40%;"><div id="nest" class="chart" ></div></td>
+      <td style="width: 60%;">
+        <div id="heatmap" class="chart" style="width: 100%;"></div>
+      </td>
+    </tr>
+    <td colspan="2">
+      <i>
+        <b>Abbreviation: </b> 
+        PAMPA: Parallel Artificial Membrane Permeability Assay;
+        MDCK:Madin-Darby Canine Kidney Cells;
+        RRCK:Ralph Russ Canine Kidney Cells ;
+        ER:Efflux Ratio ;
+        P<sub>app</sub>:Apparent Permeability;(<a href="https://hrcak.srce.hr/file/93223">Nožinić et al., 2010</a> ),
+        P<sub>eff</sub>:Effective Permeability. 
+       (<a href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.1c02090">Rzepiela et al., 2022 </a>)
+      </i>
+    </td>
+    <tr>
+
+    </tr>
+  </table>
+
+    <script src="/static/nest.js"></script>
+    <script type="module" src="/static/heatmap.js"></script>
+
+<hr style="border-color: #bebebe; margin-top: 10px; margin-bottom: 10px;">
+<h3 style="margin-left: 1%;">Check the Molecular Features Statistics</h3>
+  <div class="button-container">
+    
+    <button id="showall" class="filter-btn">Show All</button>
+    <button id="showcaco2" class="filter-btn">Show Caco-2</button>
+    <button id="showmdck" class="filter-btn">Show MDCK</button>
+    <button id="showpampa" class="filter-btn">Show PAMPA</button>
+    
+  </div>
+
+
+        <table class="grid-table" id="all" style=" margin-bottom: -10%;">
+
+            <tr>
+                <th colspan="2"><b>Molecular Features Distrubution of All Entires</b></th>
+            </tr>
+
+            <tr>
+              <td><div id="all_MW" class="bar" ></div></td>
+              <td><div id="all_HBA" class="bar"></div></td>
+            </tr>
+            <tr>
+              <td><div id="all_HBD" class="bar"></div></td>
+              <td><div id="all_cLogP" class="bar"></div></td>
+            </tr>
+            <tr>
+              <td><div id="all_TPSA" class="bar"></div></td>
+              <td><div id="all_MRS" class="bar"></div></td>
+            </tr>
+            <tr>
+              <td><div id="all_AR" class="bar"></div></td>
+              <td><div id="all_KI" class="bar"></div></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p>¹ AR = 3×AB/MRS. Where, AB denotes the total number of amide bonds (inclusive of NH and N-alkylated bonds), 
+                each multiplied by three to account for the number atoms (-N-C<sub>α</sub>-C-) forming each amide bond within the macrocyclic ring. 
+                MRS represents the total number of atoms in the macrocyclic ring. AR returns a value between 0 and 1,
+                a value of 0 represents a non-peptide macrocycle, and 1 represent cyclic peptide.
+                <a href='#'>(Feng et.al, 2024)</a>
+                </P>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"><sup>2</sup> Kier flexibility Index:
+                 <a href='https://onlinelibrary.wiley.com/doi/abs/10.1002/qsar.19890080307'>(Kier 1989)</a></td>
+            </tr>
+        </table>
+                
+            <script src="/static/all_feature.js"></script>
+</body>
+
+
+<body>
+
+    <table class="grid-table" id="caco2" style="display:none;  margin-bottom: -10%;">
+        <tr>
+          <th colspan="2"><b>Molecular Features Distrubution of Caco-2 Entires</b></th>
+        </tr>
+        <tr>
+          <td><div id="Caco2_MW" class="bar"></div></td>
+          <td><div id="Caco2_HBA" class="bar"></div></td>
+        </tr>
+        <tr>
+          <td><div id="Caco2_HBD" class="bar"></div></td>
+          <td><div id="Caco2_cLogP" class="bar"></div></td>
+        </tr>
+        <tr>
+          <td><div id="Caco2_TPSA" class="bar"></div></td>
+          <td><div id="Caco2_MRS" class="bar"></div></td>
+        </tr>
+        <tr>
+          <td><div id="Caco2_AR" class="bar"></div></td>
+          <td><div id="Caco2_KI" class="bar"></div></td>
+        </tr>
+      </table>
+            
+        <script src="/static/Caco_2.js"></script>
+</body>
+
+
+<body>
+
+    <table class="grid-table" id="mdck" style="display:none;  margin-bottom: -10%;">
+        <tr>
+          <th colspan="2"><b>Molecular Features Distrubution of MDCK Entires</b></th>
+        </tr>
+        <tr>
+          <td><div id="mdck_MW" class="bar"></div></td>
+          <td><div id="mdck_HBA" class="bar"></div></td>
+        </tr>
+        <tr>
+          <td><div id="mdck_HBD" class="bar"></div></td>
+          <td><div id="mdck_cLogP" class="bar"></div></td>
+        </tr>
+        <tr>
+          <td><div id="mdck_TPSA" class="bar"></div></td>
+          <td><div id="mdck_MRS" class="bar"></div></td>
+        </tr>
+        <tr>
+          <td><div id="mdck_AR" class="bar"></div></td>
+          <td><div id="mdck_KI" class="bar"></div></td>
+        </tr>
+      </table>
+            
+        <script src="/static/mdck.js"></script>
+</body>
+
+<body>
+
+    <table class="grid-table" id="pampa" style="display:none;  margin-bottom: -10%;">
+        <tr>
+          <th colspan="2"><b>Molecular Features Distrubution of PAMPA Entires</b></th>
+        </tr>
+        <tr>
+            <td><div id="pampa_MW" class="bar"></div></td>
+            <td><div id="pampa_HBA" class="bar"></div></td>
+          </tr>
+          <tr>
+            <td><div id="pampa_HBD" class="bar"></div></td>
+            <td><div id="pampa_cLogP" class="bar"></div></td>
+          </tr>
+          <tr>
+            <td><div id="pampa_TPSA" class="bar"></div></td>
+            <td><div id="pampa_MRS" class="bar"></div></td>
+          </tr>
+          <tr>
+            <td><div id="pampa_AR" class="bar"></div></td>
+            <td><div id="pampa_KI" class="bar"></div></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              
+            </td>
+          </tr>
+        </table>
+              
+          <script src="/static/pampa.js"></script>
+
+
+
+<script>
+// Function to hide all elements
+function hideAllElements() {
+    // Select all relevant elements and hide them
+    var elements = document.querySelectorAll('#all, #caco2, #mdck, #pampa');
+    elements.forEach(function(element) {
+        element.style.display = 'none';
+    });
+
+    // Remove the 'active-btn' class from all buttons
+    document.querySelectorAll('.filter-btn').forEach(function(button) {
+        button.classList.remove('active-btn');
+    });
+}
+
+document.getElementById('showall').addEventListener('click', function() {
+    hideAllElements(); // Hide all elements first
+    document.getElementById('all').style.display = "block";
+    this.classList.add('active-btn'); // Set this button as active
+});
+
+document.getElementById('showcaco2').addEventListener('click', function() {
+    hideAllElements(); // Hide all elements first
+    document.getElementById('caco2').style.display = "block";
+    this.classList.add('active-btn'); // Set this button as active
+});
+
+document.getElementById('showmdck').addEventListener('click', function() {
+    hideAllElements(); // Hide all elements first
+    document.getElementById('mdck').style.display = "block";
+    this.classList.add('active-btn'); // Set this button as active
+});
+
+document.getElementById('showpampa').addEventListener('click', function() {
+    hideAllElements(); // Hide all elements first
+    document.getElementById('pampa').style.display = "block";
+    this.classList.add('active-btn'); // Set this button as active
+});
+
+
+
+
+</script>
+
+
+
+</html>
+{% endblock %}

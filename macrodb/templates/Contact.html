@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% extends "master.html" %}
+{% block content %}
+<html lang="en">
+<style>
+    /* General styling for the page */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1;
+    margin-top: 0%;
+}
+
+.header {
+    background-color: #000033; /* Dark blue color */
+    color: white;
+    padding: 10px 0;
+}
+
+.content {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    font-size: 16px;
+}
+
+.contact-info {
+    background-color: #ffffff; /* Light grey color */
+    padding: 20px;
+    margin-top: 20px;
+    }
+
+
+.contact-info h2, .contact-info h3 {
+    margin: 0;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.container {
+      display: flex; /* Use flexbox for layout */
+    }
+    .figure-container {
+      margin-right: 20px; /* Distance between the figure and tables */
+    }
+
+
+</style>
+<body>
+    <div class="content" style="text-align: center;">
+        <h2>Contact</h2>
+        <h4>If you have questions, please contact:</h4>
+        <p><b>Vasanthanathan Poongavanam</b> (E-mail:vasanthanathan.poongavanam*kemi.uu.se)</p>
+        <p><b>Jan Kihlberg</b> (E-mail:jan.kihlberg*kemi.uu.se)</p>
+        <div class="contact-info" style="text-align: center;">
+            <p class="address"></p>
+            <p><a href="https://www.kemi.uu.se/bmc/research/organic-chemistry/research-groups/kihlberg-group"> Jan Kihlberg's Research Group</a></p>
+            <p>Department of Chemistry - BMC, Uppsala University</p>
+            <p>Box 576, Husargatan 3, 752 37 Uppsala, Sweden</p>
+        </div>
+        <p><i>Please replace * to @ to send the E-mail</i></p>
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

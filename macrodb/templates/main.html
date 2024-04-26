@@ -1,0 +1,54 @@
+{% extends "master.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized Page</title>
+    <style>
+        body {
+            background-color: #051432;
+            margin: 0; 
+            overflow-x: hidden; 
+            background-image: url('/static/Homepage_V2_5.png'); 
+            background-position: center top;
+            background-repeat: no-repeat; 
+            background-size: 100% auto; 
+            width: 100vw; 
+            height: 100vh; 
+            position: relative;
+        }
+        footer{
+        bottom: -18%;
+
+        }
+        .explore-btn {
+            position: absolute;
+            top: 88%; 
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 15%;
+            font-size: 3vw;
+            background-color: rgba(71, 86, 124, 0.351);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .explore-btn:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        a {
+            text-decoration: none;
+            color: rgba(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+        <button class="explore-btn">
+            <a href="/macrodb">Enter</a>
+        </button>
+</body>
+</html>
+{% endblock %}

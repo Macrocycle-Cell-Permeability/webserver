@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+{% extends "master.html" %}
+{% block content %}
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+</head>
+  <title>{{ db_entry.name }}</title>
+
+  <style type="text/css">
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+    .container {
+    display: flex; /* Use flexbox for layout */
+    
+    }
+
+    .figure-container {
+      margin-right: 20px; /* Distance between the figure and tables */
+      margin-right: 50px;
+    }
+
+    .table-container {
+  display: flex;
+  flex-direction: row; /* Align tables horizontally */
+  }
+
+table {
+  border-collapse: collapse;
+  width: auto; /* Allows the table to grow based on content up to the max-width */
+  max-width: 100%; /* Ensures table does not exceed its container width */
+  min-width: 160px; /* Minimum width of tables to ensure readability */
+  }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    th {
+      background-color: #828282;
+      color: #fff;
+      font-weight: normal;
+      text-align: left;
+    }
+    tr:hover {
+      background-color: #bebebe;
+    }
+    tr.no-hover:hover, tr.no-hover:hover td {
+    background-color: transparent; /* Ensures no background change on hover */
+}
+
+
+
+    button {
+    margin-top: 30px;
+    background-color: #e6e6e6; /* Light grey background for inactive buttons */
+    color: black; /* Black text color */
+    border: 1px solid #ccc; /* Grey border */
+    font-size: 16px;
+
+}
+
+
+
+.active-btn {
+    margin-top: 30px;
+    background-color: #828282; /* Green background for active button */
+    color: white;
+    border: 1px solid #ccc; /* Grey border */
+    font-size: 16px;
+
+}
+
+    
+  </style>
+</head>
+<body>
+<h1>{{ db_entry.name }}</h1>
+
+
+
+<div class="container" >
+  <div class="figure-container" style="margin-right: 100px;">
+    {% load static %}
+    <img src="{% static 'Overall_images/'|add:db_entry.name|add:'.png' %}" alt="{{ db_entry.name }}" style="width: 350px;">
+    <a href="{% url 'download_file' filename=db_entry.name|add:'.sdf' %}" download="{{ db_entry.name }}.sdf">
+      <button>Download SDF</button>
+  </a>
+  
+</div>
+
+  
+  <div class="table-container">
+    <table >
+      <tr><th colspan="4">Name Information</th></tr>
+
+      <tr>
+        <td colspan="2">Unique ID</td>
+        <td colspan="2">{{ db_entry.name }}</td>
+      </tr>
+
+      <tr>
+        <td colspan="2">Original ID</td>
+        <td colspan="2">{{ db_entry.Original_ID }} 
+          {% if db_entry.Link != "Not Available" %}
+          <a href="{{ db_entry.Link }}">
+            {{ db_entry.Citation }}
+          </a>
+        {% endif %}
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">Common Name</td>
+        <td colspan="2">{{ db_entry.Common_name }} </td>
+      </tr>
+
+      <tr><th colspan="4">Structure Information</th></tr>
+      <tr>
+        <td colspan="2">InchiKey</td>
+        <td colspan="2">{{ db_entry.InchiKey }}</td>
+      </tr>
+
+      <tr>
+        <td colspan="2">Isomeric SMILES</td>
+        <td colspan="2">{{ db_entry.Standardise_SMILES }}</td>
+      </tr>
+
+      <tr>
+        <td colspan="2">Isomeric SMILES(Core) </td>
+        <td colspan="2">{{ db_entry.Macrocycle_Core_smiles }}</td>
+      </tr>
+
+      <tr><th colspan="4">Permeability Information</th></tr>
+      <tr>
+        <td colspan="2">Assay</td>
+        <td colspan="2">{{ db_entry.Assay }}</td>
+      </tr>
+
+      <tr>
+        <td colspan="2">Endpoint</td>
+        <!-- <td>{{ db_entry.Endpoint }}</td> -->
+        <td colspan="2">
+          {% if db_entry.Endpoint == "Log Papp" %}
+              Log P<sub>app</sub>
+          {% elif db_entry.Endpoint == "Log Papp AB" %}
+              Log P<sub>app</sub> AB
+          {% elif db_entry.Endpoint == "Log Papp AB+Inh." %}
+              Log P<sub>app</sub> AB+Inh.
+          {% elif db_entry.Endpoint == "Log Papp BA" %}
+              Log P<sub>app</sub> BA
+          {% elif db_entry.Endpoint == "Log Pe" %}
+              Log P<sub>e</sub>
+          {% elif db_entry.Endpoint == "Minus_Log P app" %}
+              Minus_Log P<sub>app</sub>
+          {% elif db_entry.Endpoint == "Minus_Log P e" %}
+              Minus_Log P<sub>e</sub>
+          {% elif db_entry.Endpoint == "Papp" %}
+              P<sub>app</sub>
+          {% elif db_entry.Endpoint == "Papp AB" %}
+              P<sub>app</sub> AB
+          {% elif db_entry.Endpoint == "Papp AB+Inh." %}
+              P<sub>app</sub> AB+Inh.
+          {% elif db_entry.Endpoint == "Papp BA" %}
+              P<sub>app</sub> BA
+          {% elif db_entry.Endpoint == "Papp BA+Inh." %}
+              P<sub>app</sub> BA+Inh.
+          {% elif db_entry.Endpoint == "Papp+Inh." %}
+              P<sub>app</sub>+Inh.
+          {% elif db_entry.Endpoint == "Peff" %}
+              P<sub>eff</sub>
+          {% else %}
+              {{ db_entry.Endpoint }}
+          {% endif %}
+        </td>
+        
+      </tr>
+
+      <tr>
+        <td colspan="2">Value</td>
+        <td colspan="2">{{ db_entry.Value }}</td>
+      </tr>
+      
+
+
+      <tr>
+        <td colspan="2">Unit</td>
+        <td colspan="2">
+            {% if db_entry.Unit == "10^-6 cm/s" %}
+                10<sup>-6</sup> cm/s
+            {% elif db_entry.Unit == "10^6 cm/s" %}
+                10<sup>6</sup> cm/s
+            {% elif db_entry.Unit == "10^-7 cm/s" %}
+                10<sup>-7</sup> cm/s
+            {% elif db_entry.Unit == "10^7 cm/s" %}
+                10<sup>7</sup> cm/s
+            {% else %}
+                {{ db_entry.Unit }}
+            {% endif %}
+        </td>
+    </tr>
+    
+    
+
+      <tr>
+        <td colspan="2">Standardized Value</td>
+        <td colspan="2">{{ db_entry.Standardized_Value }}</td>
+      </tr>
+
+
+      <tr><th colspan="4">Molecule Features</th></tr>
+    
+      <tr>
+        <td style="width: 25%;">MW (Da)</td> 
+        <td style="width: 25%;">{{ db_entry.Molecular_Weight}}</td>
+        <td style="width: 25%;">NRotB</td> 
+        <td style="width: 25%;"> {{ db_entry.Num_Rotatable_Bonds }}</td>
+      </tr>
+    
+      <tr>
+        <td >HBA</td> 
+        <td >{{ db_entry.Num_H_Acceptors}}</td>
+        <td >Kier Index (Φ)</td> 
+        <td >{{ db_entry.Kier_index }}</td>
+      </tr>
+    
+      <tr>
+        <td >HBD</td> 
+        <td >{{ db_entry.Num_H_Donors}}</td>
+        <td>AR</td> 
+        <td>{{ db_entry.Macrocycle_Overall_Amide_Ratio }}</td>
+      </tr>
+    
+      <tr>
+        <td>cLogP</td> <td>{{ db_entry.cLogP}}</td>
+        <td>Fsp<sup>3</sup></td> <td>{{ db_entry.Fraction_SP3_Carbons}}</td>
+      </tr>
+    
+      <tr>
+        <td>TPSA (Å<sup>2</sup>)</td> <td>{{ db_entry.TPSA}}</td>
+        <td>MRS</td> <td>{{ db_entry.Macrocycle_Ring_Size}}</td>
+      </tr>
+
+      <tr class="no-hover">
+        <td colspan="4" style="border: 1px solid #ffffff">
+          Unique ID: ID for each unique molecule in this dataset;
+          Original ID: The name or ID in original source;
+          Standaridized value: Logarithmic values for permeability values (unit 10<sup>-6</sup> cm/s),  
+        </td>
+      </tr>
+
+      <tr  class="no-hover">
+        <td colspan="4" style="border: 1px solid #ffffff" >
+          Abbreviations: MW (Da): Molecular Weight; 
+          HBA: Hydrogen bond acceptor; 
+          HBD: Hydrogen bond donor; 
+          cLogP: Calculated lipophilicity; 
+          TPSA: Topological polar surface area; 
+          NRotB: Number of rotatable bonds; 
+          Φ: Kier flexibility Index: 
+          Fsp<sup>3</sup>: fraction of sp<sup>3</sup> carbon atoms; 
+          MRS: macrocyclic ring size; 
+          AR: Amide ratio; 
+        </td>
+      </tr>
+    </table>
+    
+
+  </div>
+</div>
+
+{% if same_macrocycles %}
+<button id="showSameMoleculesBtn" ><b>Show other entires for {{same_macrocycles.0.name}}</b></button>
+{% endif %}
+<button id="showSimilarMoleculesBtn"><b>Show same-core molecules</b></button>
+
+
+
+<div id="similarMoleculesTable" class="table-container" style="display:none">
+  {% if similar_macrocycles %}
+    <table id="tableSimilarMolecules" >
+      <thead>
+        <tr>
+            <th>Select</th>
+            <th>Name</th>
+            <th>Structure</th>
+            <th>MW(Da)</th>
+            <th>HBA</th>
+            <th>HBD</th>
+            <th>cLogP</th>
+            <th>TPSA(Å<sup>2</sup>)</th>
+            <th>Kier Index (Φ)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in similar_macrocycles %}
+            <tr>
+              <td><input type="checkbox" name="item1"></td>
+              <td style="text-align: center;"><a href="{% url 'details' m.id %}">{{ m.name }}</a></td>
+              <td style="text-align: center;"><img src="{% static 'Overall_images/'|add:m.name|add:'.png' %}" alt="{{ m.name }}" style="height: 200px;"></td>
+
+              <td>{{ m.Molecular_Weight}}</td>
+              <td>{{ m.Num_H_Acceptors}}</td>
+              <td>{{ m.Num_H_Donors}}</td>
+              <td>{{ m.cLogP}}</td>
+              <td>{{ m.TPSA}}</td>
+              <td>{{ m.Kier_index}}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  <button onclick="downloadSelected1()">Download Selected</button>
+
+  <script>
+    function downloadSelected1() {
+        const checkboxes = document.querySelectorAll('input[name="item1"]:checked');
+        let data = "Name,MW,HBA,HBD,cLogP,TPSA,KI\n"; // CSV header
+        checkboxes.forEach(checkbox => {
+            const row = checkbox.closest('tr');
+            const Name = row.cells[1].innerText;
+            const MW = row.cells[3].innerText;
+            const HBA = row.cells[4].innerText;
+            const HBD = row.cells[5].innerText;
+            const cLogP = row.cells[6].innerText;
+            const TPSA = row.cells[7].innerText;
+            const KI = row.cells[8].innerText;
+            
+            data += `"${Name}","${MW}","${HBA}","${HBD}","${cLogP}","${TPSA}","${KI}"\n`; // CSV format
+        });
+    
+        const blob = new Blob([data], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'selected-items.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+    
+    </script>
+    
+</div>
+
+
+<div id="sameMoleculesTable" class="table-container" style="display:none;">
+  {% if same_macrocycles %}
+    <table id="tableSameMolecules" >
+      <thead>
+        <tr>
+            <th>Select</th>
+            <th>Name</th>
+            <th>Assay</th>
+            <th>Endpoint</th>
+            <th>Value</th>
+            <th>Unit</th>
+            <th>Standardized Value</th>
+            <th>Source</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for n in same_macrocycles %}
+            <tr>
+              <td><input type="checkbox" name="item2" ></td>
+              <td style="text-align: center;"><a href="{% url 'details' n.id %}">{{ n.name }}</a></td>
+              <td>{{ n.Assay }}</td>
+              <td>{{ n.Endpoint }} </td>
+              <td>{{ n.Value }}</td>
+              <td>
+                {% if n.Unit == "10^-6 cm/s" %}
+                    10<sup>-6</sup> cm/s
+                {% elif n.Unit == "10^6 cm/s" %}
+                    10<sup>6</sup> cm/s
+                {% elif n.Unit == "10^-7 cm/s" %}
+                    10<sup>-7</sup> cm/s
+                {% elif n.Unit == "10^7 cm/s" %}
+                    10<sup>7</sup> cm/s
+                {% else %}
+                    {{ n.Unit }}
+                {% endif %}
+            </td>
+              <td>{{ n.Standardized_Value }}</td>
+              <td><a href="{{ n.Link}}">{{ n.Citation }}</a></td>
+
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  <button onclick="downloadSelected2()">Download Selected</button>
+  <script>
+    function downloadSelected2() {
+        const checkboxes = document.querySelectorAll('input[name="item2"]:checked');
+        let data = "Name,Assay,Endponit,Value,Unit,StdValue,Source\n"; // CSV header
+        checkboxes.forEach(checkbox => {
+            const row = checkbox.closest('tr');
+            const Name = row.cells[1].innerText;
+            const Assay = row.cells[2].innerText;
+            const Endpoint = row.cells[3].innerText;
+            const Value = row.cells[4].innerText;
+            const Unit = row.cells[5].innerText;
+            const StdValue = row.cells[6].innerText;
+            const Source = row.cells[7].innerText;
+            data += `"${Name}","${Assay}","${Endpoint}","${Value}","${Unit}","${StdValue}","${Source}"\n`; // CSV format
+        });
+    
+        const blob = new Blob([data], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'selected-items.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+    
+    </script>
+</div>
+
+
+<script>
+document.getElementById('showSimilarMoleculesBtn').addEventListener('click', function() {
+    var similarTable = document.getElementById('similarMoleculesTable');
+    var sameTable = document.getElementById('sameMoleculesTable');
+    this.classList.toggle('active-btn');
+    document.getElementById('showSameMoleculesBtn').classList.remove('active-btn');
+
+    similarTable.style.display = (similarTable.style.display === "none") ? "block" : "none";
+    sameTable.style.display = "none";
+});
+
+document.getElementById('showSameMoleculesBtn').addEventListener('click', function() {
+    var sameTable = document.getElementById('sameMoleculesTable');
+    var similarTable = document.getElementById('similarMoleculesTable');
+    this.classList.toggle('active-btn');
+    document.getElementById('showSimilarMoleculesBtn').classList.remove('active-btn');
+
+    sameTable.style.display = (sameTable.style.display === "none") ? "block" : "none";
+    similarTable.style.display = "none";
+});
+
+  $(document).ready(function() {
+        $('#tableSimilarMolecules').DataTable();
+      });
+
+  $(document).ready(function() {
+    var table = $('#tableSameMolecules').DataTable();
+    var indicesToSort = [1,2]; // Adjust the indices as per your table's actual column order
+    indicesToSort.forEach(function(index) {
+      var column = table.column(index);
+      var select = $('<select><option value=""></option></select>')
+        .appendTo($(column.header()))
+        .on('change', function() {
+          var val = $.fn.dataTable.util.escapeRegex($(this).val());
+          column
+            .search(val ? '^' + val + '$' : '', true, false)
+            .draw();
+            
+        });
+      column.data().unique().sort().each(function(d, j) {
+        select.append('<option value="' + d + '">' + d + '</option>')
+      });
+    });
+  });
+
+
+
+  </script>
+
+
+
+
+
+
+<p style="margin-bottom: 5%;">Back to <a href="/macrodb">MacroDB</a></p>
+</body>
+</html>
+{% endblock %}
