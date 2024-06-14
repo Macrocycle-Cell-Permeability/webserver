@@ -1,6 +1,6 @@
 from macrodb.models import macrocycle
 import pandas as pd
-df = pd.read_csv('/Users/qiushifeng/Desktop/macrocycle/data0404.csv')
+df = pd.read_csv('/Users/qiushifeng/Desktop/webserver/download/data0404.csv')
 
 for row in df.itertuples():
     entry = macrocycle(
@@ -11,7 +11,7 @@ for row in df.itertuples():
         smiles=row.SMILES,
         Standardise_SMILES=row.Standardise_SMILES,
         Value=row.Value,
-        No_symbol_Value = row.No_symbol_Value,
+        #No_symbol_Value = row.No_symbol_Value,
         Unit=row.Unit,
         Endpoint=row.Endpoint,
         Standardized_Value=row.Standardized_Value,
@@ -28,9 +28,9 @@ for row in df.itertuples():
         Macrocycle_Overall_Amide_Count=row.Macrocycle_Overall_Amide_Count,
         Macrocycle_Core_smiles=row.Macrocycle_Core_smiles,
         Macrocycle_Peripheral_smiles=row.Macrocycle_Peripheral_smiles,
-        Macrocycle_Free_Amide_Ratio=row.Macrocycle_Free_Amide_Ratio,
+        Free_Amide_Ratio=row.Free_Amide_Ratio,
        # Peptidic_Type=row.Peptidic_Type,
-        Macrocycle_Overall_Amide_Ratio=row.Macrocycle_Overall_Amide_Ratio,
+        Amide_Ratio=row.Amide_Ratio,
         Num_Rings=row.Num_Rings,
         Num_Aromatic_Rings=row.Num_Aromatic_Rings,
         cLogP=row.cLogP,
