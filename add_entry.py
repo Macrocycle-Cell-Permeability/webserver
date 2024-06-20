@@ -42,8 +42,8 @@ for row in df.itertuples():
         Fraction_SP3_Carbons=row.Fraction_SP3_Carbons,
         TPSA=row.TPSA,
         Num_Rotatable_Bonds=row.Num_Rotatable_Bonds,
-        Num_Charged_Atoms=row.Num_Charged_Atoms,
-        Net_Charge=row.Net_Charge,
+        #Num_Charged_Atoms=row.Num_Charged_Atoms,
+        #Net_Charge=row.Net_Charge,
         Kier_index=row.Kier_index)
     
     entry.save()
