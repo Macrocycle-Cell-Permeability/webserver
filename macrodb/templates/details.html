@@ -134,8 +134,8 @@ table {
       </tr>
 
       <tr>
-        <td colspan="2">Isomeric SMILES(Core) </td>
-        <td colspan="2">{{ db_entry.Macrocycle_Core_smiles }}</td>
+        <td colspan="2">SMILES (Ring) </td>
+        <td colspan="2">{{ db_entry.Macrocycle_Ring_smiles }}</td>
       </tr>
 
       <tr><th colspan="4">Permeability Information</th></tr>
@@ -279,7 +279,7 @@ table {
 {% if same_macrocycles %}
 <button id="showSameMoleculesBtn" ><b>Show other entires for {{same_macrocycles.0.name}}</b></button>
 {% endif %}
-<button id="showSimilarMoleculesBtn"><b>Show same-core molecules</b></button>
+<button id="showSimilarMoleculesBtn"><b>Show same ring molecules</b></button>
 
 
 

@@ -29,7 +29,7 @@ def details(request, id):
     entry = get_object_or_404(macrocycle, id=id)
 
     similar_macrocycles_raw = macrocycle.objects.filter(
-        Macrocycle_Core_smiles=entry.Macrocycle_Core_smiles
+        Macrocycle_Ring_smiles=entry.Macrocycle_Ring_smiles
     ).exclude(id=entry.id).values('id', 'name', 'Molecular_Weight', 'Num_H_Acceptors', 'Num_H_Donors', 'cLogP', 'TPSA', 'Num_Rotatable_Bonds','Kier_index').distinct()
 
     seen_names = set()
@@ -75,7 +75,7 @@ def download (request):# Request the html template
 
 from django.conf import settings
 def download_file_all(request):
-    filepath = os.path.join(settings.MEDIA_ROOT, 'download/data0404.csv') 
+    filepath = os.path.join(settings.MEDIA_ROOT, 'download/Overall.csv') 
     if os.path.exists(filepath):
         response = FileResponse(open(filepath, 'rb'), as_attachment=True, filename='Overall.csv')
         return response

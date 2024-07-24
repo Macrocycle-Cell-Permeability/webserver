@@ -26,7 +26,7 @@ class macrocycle(models.Model):
   Macrocycle_Free_Amide_Count	=  models.IntegerField()
   Macrocycle_Substituted_Amide_Count	=  models.IntegerField()
   Macrocycle_Overall_Amide_Count	=  models.IntegerField()
-  Macrocycle_Core_smiles	= models.CharField(max_length=255)
+  Macrocycle_Ring_smiles	= models.CharField(max_length=255)
   Macrocycle_Peripheral_smiles	= models.CharField(max_length=255)
   Free_Amide_Ratio	= models.DecimalField(max_digits=10, decimal_places=2)
   Peptidic_Type = models.CharField(max_length=255)
