@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-#^2bf2g!nf2bkh!^o7#p^9nr-0&1b$!hzfgying%g*x2qb!_^u"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','16.171.134.173','swemacrocycledb.com' ,'www.swemacrocycledb.com']
 
