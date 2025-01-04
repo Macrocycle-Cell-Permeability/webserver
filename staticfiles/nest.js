@@ -34,49 +34,49 @@ var data = [
      
        {
          name: 'ER',
-         value: 342,
+         value: 383,
          itemStyle: {
            color: '#EAF2F8'
          }
        },
        {
          name: 'ER+Inh.',
-         value: 111,
+         value: 132,
          itemStyle: {
            color: '#EBF5FB'
          }
        },
        {
          name: '㏒ P(app)',
-         value: 74,
+         value: 83,
          itemStyle: {
            color: '#D4E6F1'
          }
        },
        {
          name: '㏒ P(app) AB',
-         value:414,
+         value:448,
          itemStyle: {
            color: '#D6EAF8'
          }
        },    
        {
          name: '㏒ P(app) AB+Inh.',
-         value:119,
+         value:140,
          itemStyle: {
            color: '#A9CCE3'
          }
        },     
        {
          name: '㏒ P(app) BA',
-         value:337,
+         value:356,
          itemStyle: {
            color: '#AED6F1'
          }
        },
        {
          name: '㏒ P(app) BA+Inh.',
-         value:104,
+         value:122,
          itemStyle: {
            color: '#85C1E9'
          }
@@ -133,7 +133,7 @@ var data = [
     
       {
         name: 'ER',
-        value: 112,
+        value: 123,
         itemStyle: {
           color: '#E8F8F5'
         }
@@ -147,14 +147,14 @@ var data = [
       },
       {
         name: '㏒ P(app)',
-        value: 16,
+        value: 18,
         itemStyle: {
           color: '#D1F2EB'
         }
       },
       {
         name: '㏒ P(app) AB',
-        value:114,
+        value:125,
         itemStyle: {
           color: '#D4EFDF'
         }
@@ -168,7 +168,7 @@ var data = [
       },     
       {
         name: '㏒ P(app) BA',
-        value:7,
+        value:18,
         itemStyle: {
           color: '#A9DFBF'
         }
@@ -196,14 +196,14 @@ var data = [
      
        {
          name: '㏒ P(app)',
-         value: 305,
+         value: 314,
          itemStyle: {
            color: '#FAD7A0'
          }
        },
        {
          name: '㏒ P(eff)',
-         value: 3462,
+         value: 3546,
          itemStyle: {
            color: '#F6DDCC'
          }
