@@ -7,6 +7,7 @@ class macrocycle(models.Model):
   smiles = models.CharField(max_length=255) ##Keep it first
   Original_ID	= models.CharField(max_length=255)
   Common_name = models.CharField(max_length=255)
+  #CAS_no = models.CharField(max_length=255)
   #Commom_name = models.CharField(max_length=255)
   InchiKey = models.CharField(max_length=255)
   Standardise_SMILES	= models.CharField(max_length=255)

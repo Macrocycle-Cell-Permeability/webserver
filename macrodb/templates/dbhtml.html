@@ -74,6 +74,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                
                 <th>Common name</th>
                 <th>Structure</th>
                 <th>Assay</th>
@@ -89,6 +90,7 @@
             {% for x in db_entry %}
         <tr>
           <td><a href="details/{{ x.id }}">{{ x.name }}</a></td>
+         
           <td>{{ x.Common_name }}</td>
           <td style="text-align: center;">
            <img src="/static/Overall_images/{{ x.name }}.png" alt="{{ x.name }}" style="width: 250px; display: block; margin: auto;">
@@ -147,18 +149,22 @@
 {% endfor %}
 
 </table>
-<h4>✅ Last Data Updated: July, 2023 </h4>
-<p>Charged molecules were neutralized, original data with sign '<' or '>' were removed during data standardization</p>
-<p style="margin-bottom: -8%;">
-    <b>Abbreviation: </b> 
-    PAMPA: Parallel Artificial Membrane Permeability Assay;
-    MDCK:Madin-Darby Canine Kidney Cells;
-    RRCK:Ralph Russ Canine Kidney Cells ;
-    ER:Efflux Ratio ;
-    P<sub>app</sub>:Apparent Permeability;(<a href="https://hrcak.srce.hr/file/93223">Nožinić et al., 2010</a> ),
-    P<sub>eff</sub>:Effective Permeability. 
-   (<a href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.1c02090">Rzepiela et al., 2022 </a>)
-</p>
+
+<table style='margin-bottom:12%'>
+    <h4>✅ Last Data Updated: Oct, 2024 </h4>
+    <p>Charged molecules were neutralized, original data with sign '<' or '>' were removed during data standardization</p>
+    <p>
+        <b>Abbreviation: </b> 
+        PAMPA: Parallel Artificial Membrane Permeability Assay;
+        MDCK:Madin-Darby Canine Kidney Cells;
+        RRCK:Ralph Russ Canine Kidney Cells ;
+        ER:Efflux Ratio ;
+        P<sub>app</sub>:Apparent Permeability;(<a href="https://hrcak.srce.hr/file/93223">Nožinić et al., 2010</a> ),
+        P<sub>eff</sub>:Effective Permeability. 
+       (<a href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.1c02090">Rzepiela et al., 2022 </a>)
+    </p>
+</table>
+
 
 
 </body>

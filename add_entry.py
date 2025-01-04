@@ -1,6 +1,6 @@
 from macrodb.models import macrocycle
 import pandas as pd
-df = pd.read_csv('/Users/qiushifeng/Desktop/webserver/download/Overall.csv')
+df = pd.read_csv('/Users/qiushifeng/Desktop/webserver_new_pub/Overall.csv')
 
 for row in df.itertuples():
     entry = macrocycle(
@@ -11,7 +11,7 @@ for row in df.itertuples():
         smiles=row.SMILES,
         Standardise_SMILES=row.Standardise_SMILES,
         Value=row.Value,
-        #No_symbol_Value = row.No_symbol_Value,
+        #CAS_no = row.CAS_no,
         Unit=row.Unit,
         Endpoint=row.Endpoint,
         Standardized_Value=row.Standardized_Value,

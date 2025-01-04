@@ -25,9 +25,6 @@ var data = [
       },
     ]
   },
-
-
-
   {
      name: 'Caco-2',
      itemStyle: {
