@@ -34,7 +34,7 @@ var data = [
      
        {
          name: 'ER',
-         value: 383,
+         value: 389,
          itemStyle: {
            color: '#EAF2F8'
          }
@@ -48,35 +48,35 @@ var data = [
        },
        {
          name: '㏒ P(app)',
-         value: 83,
+         value: 87,
          itemStyle: {
            color: '#D4E6F1'
          }
        },
        {
          name: '㏒ P(app) AB',
-         value:448,
+         value: 496,
          itemStyle: {
            color: '#D6EAF8'
          }
        },    
        {
          name: '㏒ P(app) AB+Inh.',
-         value:140,
+         value: 144,
          itemStyle: {
            color: '#A9CCE3'
          }
        },     
        {
          name: '㏒ P(app) BA',
-         value:356,
+         value: 362,
          itemStyle: {
            color: '#AED6F1'
          }
        },
        {
          name: '㏒ P(app) BA+Inh.',
-         value:122,
+         value: 126,
          itemStyle: {
            color: '#85C1E9'
          }
@@ -107,7 +107,7 @@ var data = [
    
       {
         name: '㏒ P(app) AB',
-        value:2,
+        value: 2,
         itemStyle: {
           color: '#D2B4DE'
         }
@@ -115,7 +115,7 @@ var data = [
    
       {
         name: '㏒ P(app) BA',
-        value:2,
+        value: 2,
         itemStyle: {
           color: '#EBDEF0'
         }
@@ -133,7 +133,7 @@ var data = [
     
       {
         name: 'ER',
-        value: 123,
+        value: 266,
         itemStyle: {
           color: '#E8F8F5'
         }
@@ -147,35 +147,35 @@ var data = [
       },
       {
         name: '㏒ P(app)',
-        value: 18,
+        value: 33,
         itemStyle: {
           color: '#D1F2EB'
         }
       },
       {
         name: '㏒ P(app) AB',
-        value:125,
+        value: 294,
         itemStyle: {
           color: '#D4EFDF'
         }
       },    
       {
         name: '㏒ P(app) AB+Inh.',
-        value:5,
+        value: 5,
         itemStyle: {
           color: '#A3E4D7'
         }
       },     
       {
         name: '㏒ P(app) BA',
-        value:18,
+        value: 34,
         itemStyle: {
           color: '#A9DFBF'
         }
       },
       {
         name: '㏒ P(app) BA+Inh.',
-        value:5,
+        value: 5,
         itemStyle: {
           color: '#76D7C4'
         }
@@ -196,14 +196,14 @@ var data = [
      
        {
          name: '㏒ P(app)',
-         value: 314,
+         value: 326,
          itemStyle: {
            color: '#FAD7A0'
          }
        },
        {
          name: '㏒ P(eff)',
-         value: 3546,
+         value: 3552,
          itemStyle: {
            color: '#F6DDCC'
          }
