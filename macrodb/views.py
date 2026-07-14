@@ -159,6 +159,12 @@ def download_file_caco_2_log_papp(request):
 def download_file_others_log_papp(request):
     return download_file_generic('Others  Log Papp.csv')
 
+def download_file_others_log_papp_ab(request):
+    return download_file_generic('Others  Log Papp AB.csv')
+
+def download_file_others_log_papp_ba(request):
+    return download_file_generic('Others  Log Papp BA.csv')
+
 def download_file_others_er(request):
     return download_file_generic('Others  ER.csv')
 

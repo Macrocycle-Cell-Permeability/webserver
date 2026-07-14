@@ -23,6 +23,20 @@ var data = [
           color: '#F5B7B1'
         }
       },
+      {
+        name: '㏒ P(app) AB',
+        value: 4,
+        itemStyle: {
+          color: '#FADBD8'
+        }
+      },
+      {
+        name: '㏒ P(app) BA',
+        value: 4,
+        itemStyle: {
+          color: '#F9EBEA'
+        }
+      },
     ]
   },
   {
@@ -34,7 +48,7 @@ var data = [
      
        {
          name: 'ER',
-         value: 389,
+         value: 405,
          itemStyle: {
            color: '#EAF2F8'
          }
@@ -48,28 +62,28 @@ var data = [
        },
        {
          name: '㏒ P(app)',
-         value: 87,
+         value: 101,
          itemStyle: {
            color: '#D4E6F1'
          }
        },
        {
          name: '㏒ P(app) AB',
-         value: 496,
+         value: 526,
          itemStyle: {
            color: '#D6EAF8'
          }
-       },    
+       },
        {
          name: '㏒ P(app) AB+Inh.',
          value: 144,
          itemStyle: {
            color: '#A9CCE3'
          }
-       },     
+       },
        {
          name: '㏒ P(app) BA',
-         value: 362,
+         value: 373,
          itemStyle: {
            color: '#AED6F1'
          }
@@ -81,13 +95,13 @@ var data = [
            color: '#85C1E9'
          }
        },
-/*        {
+       {
          name: '㏒ P(app)+Inh.',
          value: 1,
          itemStyle: {
            color: '#d0545f'
          }
-       } */
+       },
      ]
    },
    {
@@ -133,7 +147,7 @@ var data = [
     
       {
         name: 'ER',
-        value: 266,
+        value: 269,
         itemStyle: {
           color: '#E8F8F5'
         }
@@ -147,18 +161,18 @@ var data = [
       },
       {
         name: '㏒ P(app)',
-        value: 33,
+        value: 62,
         itemStyle: {
           color: '#D1F2EB'
         }
       },
       {
         name: '㏒ P(app) AB',
-        value: 294,
+        value: 299,
         itemStyle: {
           color: '#D4EFDF'
         }
-      },    
+      },
       {
         name: '㏒ P(app) AB+Inh.',
         value: 5,
@@ -203,7 +217,7 @@ var data = [
        },
        {
          name: '㏒ P(eff)',
-         value: 3552,
+         value: 3630,
          itemStyle: {
            color: '#F6DDCC'
          }

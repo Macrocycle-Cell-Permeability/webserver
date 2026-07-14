@@ -1,6 +1,6 @@
 from macrodb.models import macrocycle
 import pandas as pd
-df = pd.read_csv('/Users/qiushifeng/Desktop/webserver/Overall.csv')
+df = pd.read_csv('/Users/qiushifeng/Desktop/webserver/Overall.csv',encoding='utf_8_sig')
 
 for row in df.itertuples():
     entry = macrocycle(
