@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 {% extends "master.html" %}
 {% load static %}
-{% block content %}
-<html lang="en">
+{% block title %}Contact{% endblock %}
+{% block extra_head %}
 <style>
     /* General styling for the page */
 body {
@@ -49,7 +48,8 @@ body {
 
 
 </style>
-<body>
+{% endblock %}
+{% block content %}
     <div class="content" style="text-align: center;">
         <h2>Contact</h2>
         <h4>If you have questions, please contact:</h4>
@@ -63,8 +63,4 @@ body {
         </div>
         <p><i>Please replace * to @ to send the E-mail</i></p>
     </div>
-
-</body>
-
-</html>
 {% endblock %}

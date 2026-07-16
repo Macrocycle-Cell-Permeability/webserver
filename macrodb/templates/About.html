@@ -1,10 +1,7 @@
-<!DOCTYPE html>
 {% extends "master.html" %}
 {% load static %}
-{% block content %}
-<!doctype html>
-<head>
-<title>About</title>
+{% block title %}About{% endblock %}
+{% block extra_head %}
 <style>
 
     body {
@@ -70,8 +67,8 @@ a{
     }
 
     </style>
-</head>
-<body>
+{% endblock %}
+{% block content %}
     <div class="container">
         <div class="text-content">
             <h2>About macrocycles</h2>
@@ -225,9 +222,4 @@ a{
         </div>
     </div>    
     <hr style="border-color: #bebebe; margin-top: 5px; margin-bottom: 20%;">
-
-</body>
-
-</html>
-
 {% endblock %}

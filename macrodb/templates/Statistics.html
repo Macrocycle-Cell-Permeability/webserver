@@ -1,12 +1,7 @@
-<!DOCTYPE html>
 {% extends "master.html" %}
 {% load static %}
-{% block content %}
-
-<html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
+{% block title %}Statistics{% endblock %}
+{% block extra_head %}
             <script src="/static/echarts.js"></script>
             <style>
                 body{
@@ -91,8 +86,9 @@
 
 
 </style>
-        </head>
-        
+{% endblock %}
+{% block content %}
+
   <table class="grid-table" >
 
     <tr>
@@ -172,10 +168,6 @@
         </table>
                 
             <script src="/static/all_feature.js"></script>
-</body>
-
-
-<body>
 
     <table class="grid-table" id="caco2" style="display:none;  margin-bottom: 10%;">
         <tr>
@@ -200,10 +192,6 @@
       </table>
             
         <script src="/static/Caco_2.js"></script>
-</body>
-
-
-<body>
 
     <table class="grid-table" id="mdck" style="display:none;  margin-bottom: 10%;">
         <tr>
@@ -228,9 +216,6 @@
       </table>
             
         <script src="/static/mdck.js"></script>
-</body>
-
-<body>
 
     <table class="grid-table" id="pampa" style="display:none;  margin-bottom: 10%;">
         <tr>
@@ -260,8 +245,6 @@
         </table>
               
           <script src="/static/pampa.js"></script>
-
- </body>
 
 <script>
 // Function to hide all elements
@@ -302,12 +285,5 @@ document.getElementById('showpampa').addEventListener('click', function() {
     this.classList.add('active-btn'); // Set this button as active
 });
 
-
-
-
 </script>
-
-
-
-</html>
 {% endblock %}

@@ -1,13 +1,9 @@
-<!DOCTYPE html>
 {% extends "master.html" %}
-{% block content %}
-<html>
-<head>
+{% block title %}{{ db_entry.name }}{% endblock %}
+{% block extra_head %}
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-</head>
-  <title>{{ db_entry.name }}</title>
 
   <style type="text/css">
     body {
@@ -78,10 +74,10 @@ table {
 
 }
 
-    
+
   </style>
-</head>
-<body>
+{% endblock %}
+{% block content %}
 <h1>{{ db_entry.name }}</h1>
 
 
@@ -428,25 +424,32 @@ table {
 
 
 <script>
-document.getElementById('showSimilarMoleculesBtn').addEventListener('click', function() {
+var showSimilarBtn = document.getElementById('showSimilarMoleculesBtn');
+var showSameBtn = document.getElementById('showSameMoleculesBtn');
+
+showSimilarBtn.addEventListener('click', function() {
     var similarTable = document.getElementById('similarMoleculesTable');
     var sameTable = document.getElementById('sameMoleculesTable');
     this.classList.toggle('active-btn');
-    document.getElementById('showSameMoleculesBtn').classList.remove('active-btn');
+    if (showSameBtn) {
+        showSameBtn.classList.remove('active-btn');
+    }
 
     similarTable.style.display = (similarTable.style.display === "none") ? "block" : "none";
     sameTable.style.display = "none";
 });
 
-document.getElementById('showSameMoleculesBtn').addEventListener('click', function() {
-    var sameTable = document.getElementById('sameMoleculesTable');
-    var similarTable = document.getElementById('similarMoleculesTable');
-    this.classList.toggle('active-btn');
-    document.getElementById('showSimilarMoleculesBtn').classList.remove('active-btn');
+if (showSameBtn) {
+    showSameBtn.addEventListener('click', function() {
+        var sameTable = document.getElementById('sameMoleculesTable');
+        var similarTable = document.getElementById('similarMoleculesTable');
+        this.classList.toggle('active-btn');
+        showSimilarBtn.classList.remove('active-btn');
 
-    sameTable.style.display = (sameTable.style.display === "none") ? "block" : "none";
-    similarTable.style.display = "none";
-});
+        sameTable.style.display = (sameTable.style.display === "none") ? "block" : "none";
+        similarTable.style.display = "none";
+    });
+}
 
   $(document).ready(function() {
         $('#tableSimilarMolecules').DataTable();
@@ -482,6 +485,4 @@ document.getElementById('showSameMoleculesBtn').addEventListener('click', functi
 
 
 <p style="margin-bottom: 10%;">Back to <a href="/macrodb">Browse</a></p>
-</body>
-</html>
 {% endblock %}

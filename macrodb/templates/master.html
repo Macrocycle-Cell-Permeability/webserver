@@ -3,7 +3,7 @@
   {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Non-peptidic Macrocycle Database</title>
+    <title>{% block title %}Non-peptidic Macrocycle Database{% endblock %}</title>
     <style>
         body {
             display: flex;
@@ -125,6 +125,7 @@
         }
       }
     </style>
+    {% block extra_head %}{% endblock %}
 </head>
     <header>
         <ul style="display: flex; align-items: center;" class="header-nav">

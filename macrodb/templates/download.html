@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 {% extends "master.html" %}
 {% load static %}
-{% block content %}
-<html lang="en">
+{% block title %}Download{% endblock %}
+{% block extra_head %}
     <style type="text/css">
         body{
           font-family: Arial, Helvetica, sans-serif;
@@ -24,8 +23,8 @@
         .tg .tg-p59p{background-color:#FFF;text-align:center;vertical-align:middle}
         .tg .tg-bdsj{background-color:#FFF;text-align:center;vertical-align:top}
         </style>
-
-
+{% endblock %}
+{% block content %}
         <table class="tg" style="table-layout: fixed; width: 90%; margin: 1% auto;margin-bottom: 3%">
         <colgroup>
         <col style="width: 90px">
@@ -37,185 +36,185 @@
         </colgroup>
         <thead>
           <tr>
-            <th class="tg-rtu7" colspan="2">Data</span></th>
-            <th class="tg-rtu7" colspan="2"> Number of Entries</span></th>
-            <td class="tg-rtu7" colspan="2"> Download</span></td>
+            <th class="tg-rtu7" colspan="2">Data</th>
+            <th class="tg-rtu7" colspan="2"> Number of Entries</th>
+            <td class="tg-rtu7" colspan="2"> Download</td>
         </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="tg-wa1i" colspan="2"> Overall</span></td>
-            <td class="tg-wa1i" colspan="2"> 6585</span></td>
-            <td class="tg-wa1i" colspan="2"><a href="{% url 'download_file_all' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
+            <td class="tg-wa1i" colspan="2"> Overall</td>
+            <td class="tg-wa1i" colspan="2"> 6585</td>
+            <td class="tg-wa1i" colspan="2"><a href="{% url 'download_file_all' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
           </tr>
           <tr>
-            <td class="tg-rtu7"> Data</span></td>
-            <td class="tg-rtu7"> Number of Entries</span></td>
-            <td class="tg-rtu7"> Download</span></td>
-            <td class="tg-rtu7"> Data</span></td>
-            <td class="tg-rtu7"> Number of Entries</span></td>
-            <td class="tg-rtu7"> Download</span></td>
+            <td class="tg-rtu7"> Data</td>
+            <td class="tg-rtu7"> Number of Entries</td>
+            <td class="tg-rtu7"> Download</td>
+            <td class="tg-rtu7"> Data</td>
+            <td class="tg-rtu7"> Number of Entries</td>
+            <td class="tg-rtu7"> Download</td>
           </tr>
          
           <tr>
-            <td class="tg-2g1l" rowspan="8">Caco-2</span></td>
-            <td class="tg-2g1l" rowspan="8">1808</span></td>
-            <td class="tg-2g1l" rowspan="8"><a href="{% url 'download_file_caco_2' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
-            <td class="tg-f4yw">Log P<sub>app</sub> AB</span></td>
-            <td class="tg-f4yw">526</span></td>
-            <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_ab' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
+            <td class="tg-2g1l" rowspan="8">Caco-2</td>
+            <td class="tg-2g1l" rowspan="8">1808</td>
+            <td class="tg-2g1l" rowspan="8"><a href="{% url 'download_file_caco_2' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
+            <td class="tg-f4yw">Log P<sub>app</sub> AB</td>
+            <td class="tg-f4yw">526</td>
+            <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_ab' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
 
           </tr>
           <tr>
-            <td class="tg-f4yw">Log P<sub>app</sub> BA</span></td>
-            <td class="tg-f4yw">373</span></td>
-            <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_ba' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
+            <td class="tg-f4yw">Log P<sub>app</sub> BA</td>
+            <td class="tg-f4yw">373</td>
+            <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_ba' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
           </tr>
 
           <tr>
-            <td class="tg-f4yw">Log P<sub>app</sub> AB+Inh.</span></td>
-            <td class="tg-f4yw">144</span></td>
-            <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_ab_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
+            <td class="tg-f4yw">Log P<sub>app</sub> AB+Inh.</td>
+            <td class="tg-f4yw">144</td>
+            <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_ab_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
           </tr>
 
           <tr>
-            <td class="tg-f4yw">Log P<sub>app</sub> BA+Inh.</span></td>
-            <td class="tg-f4yw">126</span></td>
-            <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_ba_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
+            <td class="tg-f4yw">Log P<sub>app</sub> BA+Inh.</td>
+            <td class="tg-f4yw">126</td>
+            <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_ba_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
           </tr>
           <tr>
-            <td class="tg-f4yw">Log P<sub>app</sub></span></td>
-            <td class="tg-f4yw">101</span></td>
+            <td class="tg-f4yw">Log P<sub>app</sub></td>
+            <td class="tg-f4yw">101</td>
             <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-f4yw">Log P<sub>app</sub>+Inh.</span></td>
-            <td class="tg-f4yw">1</span></td>
+            <td class="tg-f4yw">Log P<sub>app</sub>+Inh.</td>
+            <td class="tg-f4yw">1</td>
             <td class="tg-7yig"><a href="{% url 'download_file_caco_2_log_papp_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-f4yw">ER</span></td>
-            <td class="tg-f4yw">405</span></td>
+            <td class="tg-f4yw">ER</td>
+            <td class="tg-f4yw">405</td>
             <td class="tg-7yig"> <a href="{% url 'download_file_caco_2_er' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
           </tr>
           <tr>
-            <td class="tg-f4yw">ER+Inh.</span></td>
-            <td class="tg-f4yw">132</span></td>
+            <td class="tg-f4yw">ER+Inh.</td>
+            <td class="tg-f4yw">132</td>
             <td class="tg-7yig"><a href="{% url 'download_file_caco_2_er_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
 
           <tr>
-            <td class="tg-ukly" rowspan="7"> MDCK</span></td>
-            <td class="tg-ukly" rowspan="7"> 679</span></td>
-            <td class="tg-ukly" rowspan="7"> <a href="{% url 'download_file_mdck' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
-            <td class="tg-o4ah"> Log P<sub>app</sub></span></td>
-            <td class="tg-o4ah"> 62</span></td>
+            <td class="tg-ukly" rowspan="7"> MDCK</td>
+            <td class="tg-ukly" rowspan="7"> 679</td>
+            <td class="tg-ukly" rowspan="7"> <a href="{% url 'download_file_mdck' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
+            <td class="tg-o4ah"> Log P<sub>app</sub></td>
+            <td class="tg-o4ah"> 62</td>
             <td class="tg-2m49"><a href="{% url 'download_file_mdck_log_papp' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
 
           <tr>
-            <td class="tg-o4ah"> Log P<sub>app</sub> AB</span></td>
-            <td class="tg-o4ah"> 299</span></td>
+            <td class="tg-o4ah"> Log P<sub>app</sub> AB</td>
+            <td class="tg-o4ah"> 299</td>
             <td class="tg-2m49"><a href="{% url 'download_file_mdck_log_papp_ab' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           
           <tr>
-            <td class="tg-o4ah"> Log P<sub>app</sub> BA</span></td>
-            <td class="tg-o4ah"> 34</span></td>
+            <td class="tg-o4ah"> Log P<sub>app</sub> BA</td>
+            <td class="tg-o4ah"> 34</td>
             <td class="tg-2m49"><a href="{% url 'download_file_mdck_log_papp_ba' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
 
           <tr>
-            <td class="tg-o4ah"> Log P<sub>app</sub> AB+Inh.</span></td>
-            <td class="tg-o4ah"> 5</span></td>
+            <td class="tg-o4ah"> Log P<sub>app</sub> AB+Inh.</td>
+            <td class="tg-o4ah"> 5</td>
             <td class="tg-2m49"><a href="{% url 'download_file_mdck_log_papp_ab_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
 
           <tr>
-            <td class="tg-o4ah"> Log P<sub>app</sub> BA+Inh.</span></td>
-            <td class="tg-o4ah"> 5</span></td>
+            <td class="tg-o4ah"> Log P<sub>app</sub> BA+Inh.</td>
+            <td class="tg-o4ah"> 5</td>
             <td class="tg-2m49"><a href="{% url 'download_file_mdck_log_papp_ba_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-o4ah"> ER</span></td>
-            <td class="tg-o4ah"> 269</span></td>
+            <td class="tg-o4ah"> ER</td>
+            <td class="tg-o4ah"> 269</td>
             <td class="tg-2m49"><a href="{% url 'download_file_mdck_er' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-o4ah"> ER+Inh.</span></td>
-            <td class="tg-o4ah"> 5</span></td>
-            <td class="tg-2m49"> <a href="{% url 'download_file_mdck_er_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
+            <td class="tg-o4ah"> ER+Inh.</td>
+            <td class="tg-o4ah"> 5</td>
+            <td class="tg-2m49"> <a href="{% url 'download_file_mdck_er_plus' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
           </tr>
           <tr>
-            <td class="tg-2g1l" rowspan="3">RRCK</span></td>
-            <td class="tg-2g1l" rowspan="3">7</span></td>
-            <td class="tg-2g1l" rowspan="3"><a href="{% url 'download_file_rrck' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
-            <td class="tg-f4yw">ER</span></td>
-            <td class="tg-f4yw">3</span></td>
+            <td class="tg-2g1l" rowspan="3">RRCK</td>
+            <td class="tg-2g1l" rowspan="3">7</td>
+            <td class="tg-2g1l" rowspan="3"><a href="{% url 'download_file_rrck' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
+            <td class="tg-f4yw">ER</td>
+            <td class="tg-f4yw">3</td>
             <td class="tg-7yig"><a href="{% url 'download_file_rrck_er' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-f4yw">Log P<sub>app</sub> AB</span></td>
-            <td class="tg-f4yw">2</span></td>
+            <td class="tg-f4yw">Log P<sub>app</sub> AB</td>
+            <td class="tg-f4yw">2</td>
             <td class="tg-7yig"><a href="{% url 'download_file_rrck_log_papp_ab' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-f4yw">Log P<sub>app</sub> BA</span></td>
-            <td class="tg-f4yw">2</span></td>
+            <td class="tg-f4yw">Log P<sub>app</sub> BA</td>
+            <td class="tg-f4yw">2</td>
             <td class="tg-7yig"><a href="{% url 'download_file_rrck_log_papp_ba' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-ukly" rowspan="2"> PAMPA</span></td>
-            <td class="tg-ukly" rowspan="2"> 3985</span></td>
-            <td class="tg-ukly" rowspan="2"><a href="{% url 'download_file_pampa' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
-            <td class="tg-o4ah"> Log P<sub>app</sub></span></td>
-            <td class="tg-o4ah"> 355</span></td>
+            <td class="tg-ukly" rowspan="2"> PAMPA</td>
+            <td class="tg-ukly" rowspan="2"> 3985</td>
+            <td class="tg-ukly" rowspan="2"><a href="{% url 'download_file_pampa' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
+            <td class="tg-o4ah"> Log P<sub>app</sub></td>
+            <td class="tg-o4ah"> 355</td>
             <td class="tg-2m49"><a href="{% url 'download_file_pampa_log_papp' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-o4ah"> Log P<sub>eff</sub></span></td>
-            <td class="tg-o4ah"> 3630</span></td>
-            <td class="tg-2m49"><a href="{% url 'download_file_pampa_log_peff' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
+            <td class="tg-o4ah"> Log P<sub>eff</sub></td>
+            <td class="tg-o4ah"> 3630</td>
+            <td class="tg-2m49"><a href="{% url 'download_file_pampa_log_peff' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
           </tr>
           <tr>
-            <td class="tg-w7t0" rowspan="4">Others</span></td>
-            <td class="tg-w7t0" rowspan="4">106</span></td>
-            <td class="tg-w7t0" rowspan="4"><a href="{% url 'download_file_others' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></span></td>
-            <td class="tg-p59p">ER</span></td>
-            <td class="tg-p59p">46</span></td>
+            <td class="tg-w7t0" rowspan="4">Others</td>
+            <td class="tg-w7t0" rowspan="4">106</td>
+            <td class="tg-w7t0" rowspan="4"><a href="{% url 'download_file_others' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a></td>
+            <td class="tg-p59p">ER</td>
+            <td class="tg-p59p">46</td>
             <td class="tg-bdsj"><a href="{% url 'download_file_others_er' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-p59p"> Log P<sub>app</sub></span></td>
-            <td class="tg-p59p">52</span></td>
+            <td class="tg-p59p"> Log P<sub>app</sub></td>
+            <td class="tg-p59p">52</td>
             <td class="tg-bdsj"><a href="{% url 'download_file_others_log_papp' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-p59p"> Log P<sub>app</sub> AB</span></td>
-            <td class="tg-p59p">4</span></td>
+            <td class="tg-p59p"> Log P<sub>app</sub> AB</td>
+            <td class="tg-p59p">4</td>
             <td class="tg-bdsj"><a href="{% url 'download_file_others_log_papp_ab' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
           <tr>
-            <td class="tg-p59p"> Log P<sub>app</sub> BA</span></td>
-            <td class="tg-p59p">4</span></td>
+            <td class="tg-p59p"> Log P<sub>app</sub> BA</td>
+            <td class="tg-p59p">4</td>
             <td class="tg-bdsj"><a href="{% url 'download_file_others_log_papp_ba' %}"><img src="/static/download.png" style="width: 24px;margin: 0 auto;"></a>
-            </span></td>
+            </td>
           </tr>
         </tbody>
         </table>
@@ -233,7 +232,4 @@
            (<a href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.1c02090">Rzepiela et al., 2022 </a>)
          </p>
         </div>
-</body>
-
-</html>
 {% endblock %}
